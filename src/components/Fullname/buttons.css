@@ -11,3 +11,24 @@ button{
     padding: 10px;
 }
 
+.active{
+     color: aquamarine;
+}
+
+.azul{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rojo{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(255, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
