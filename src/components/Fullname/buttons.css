@@ -32,3 +32,9 @@ button{
     align-items: center;
 }
 
+.clicked{
+    background-color: grey;
+    color: rgb(0, 255, 106);
+    font-weight: 600;
+}
+

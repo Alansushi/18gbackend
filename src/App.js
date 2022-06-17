@@ -7,17 +7,25 @@ import Title from "./components/Title";
 import Nombre from "./components/Fullname/fullname";
 
 import "./components/Fullname/buttons.css";
+// import { click } from "@testing-library/user-event/dist/click";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [, setShowText] = useState(false);
+  // const [state, setState] = useState(0);
+  // const [state, setState] = useState(false);
+  // const [] = useState(false);
   const handleMouseEnter = (e) => {
     e.target.style.background = "grey";
-    setShowText(true);
   };
   const handleMouseLeave = (e) => {
     e.target.style.background = "blue";
-    setShowText(false);
+  };
+
+  const handleMouseEnter2 = (e) => {
+    e.target.style.color = "grey";
+  };
+  const handleMouseLeave2 = (e) => {
+    e.target.style.color = "white";
   };
 
   const handleClick = (increase) => {
@@ -29,6 +37,28 @@ function App() {
     }
     setCount(newCount);
   };
+  let active;
+  const handleClick2 = (number) => {
+    active = number;
+    if (number === 1) {
+      console.log(number);
+      console.log(active);
+      return active;
+      // const countClassClicked = active ? "clicked" : "1";
+    }
+    if (number === 2) {
+      console.log(active);
+      return active;
+    }
+    if (number === 3) {
+      console.log(active);
+      return active;
+    }
+    if (number === 4) {
+      console.log(active);
+      return active;
+    }
+  };
 
   const isMultiple = count % 5 === 0 && count !== 0 ? true : false;
   const countType = isMultiple ? "Es multiplo de 5" : "No es multiplo de 5";
@@ -37,6 +67,13 @@ function App() {
   const isOdd = count % 2 === 0 && count !== 0 ? true : false;
   const countTypeOdd = isOdd ? "ON" : "OFF";
   const countClassOdd = isOdd ? "azul" : "rojo";
+  function checkNumber(active) {
+    const check1 = active === 1 ? true : false;
+    console.log(check1);
+    const check1Class = check1 ? "clicked" : "1";
+    return check1Class;
+  }
+  console.log(checkNumber());
   return (
     <div className="App">
       <header className="App-header">
@@ -72,6 +109,36 @@ function App() {
         >
           {countTypeOdd}
         </div>
+        <p
+          onClick={() => handleClick2(1)}
+          onMouseEnter={handleMouseEnter2}
+          onMouseLeave={handleMouseLeave2}
+          className={checkNumber(active)}
+        >
+          Getting Started
+        </p>
+        <p
+          onClick={() => handleClick2(2)}
+          onMouseEnter={handleMouseEnter2}
+          onMouseLeave={handleMouseLeave2}
+          className="2"
+        >
+          Add React to a website
+        </p>
+        <p
+          onClick={() => handleClick2(3)}
+          onMouseEnter={handleMouseEnter2}
+          onMouseLeave={handleMouseLeave2}
+        >
+          Create a New react App
+        </p>
+        <p
+          onClick={() => handleClick2(4)}
+          onMouseEnter={handleMouseEnter2}
+          onMouseLeave={handleMouseLeave2}
+        >
+          CDN Links
+        </p>
       </header>
     </div>
   );
