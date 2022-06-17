@@ -10,6 +10,15 @@ import "./components/Fullname/buttons.css";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [, setShowText] = useState(false);
+  const handleMouseEnter = (e) => {
+    e.target.style.background = "grey";
+    setShowText(true);
+  };
+  const handleMouseLeave = (e) => {
+    e.target.style.background = "blue";
+    setShowText(false);
+  };
 
   const handleClick = (increase) => {
     let newCount = count;
@@ -56,7 +65,13 @@ function App() {
         </p>
 
         <button onClick={() => handleClick(true)}>Increase</button>
-        <div className={countClassOdd}>{countTypeOdd}</div>
+        <div
+          className={countClassOdd}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {countTypeOdd}
+        </div>
       </header>
     </div>
   );
