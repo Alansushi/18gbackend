@@ -8,12 +8,80 @@ import Nombre from "./components/Fullname/fullname";
 
 import "./components/Fullname/buttons.css";
 // import { click } from "@testing-library/user-event/dist/click";
+function CardItemContent({ title, text }) {
+  return (
+    <div className="card-item-content">
+      <p className="title">{title}</p>
+      <p className="content">{text}</p>
+    </div>
+  );
+}
 
 function App() {
   const [count, setCount] = useState(0);
-  // const [state, setState] = useState(0);
-  // const [state, setState] = useState(false);
-  // const [] = useState(false);
+  const koders = [
+    {
+      firstName: "Luis",
+      lastName: "Vera",
+      age: 24,
+      gender: "f",
+      photoURL:
+        "https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg",
+    },
+    {
+      firstName: "Nestor",
+      lastName: "Ramírez",
+      age: 40,
+      gender: "m",
+      photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
+    },
+    {
+      firstName: "David",
+      lastName: "Romero",
+      age: 28,
+      gender: "m",
+      photoURL:
+        "https://www.shareicon.net/data/2016/05/24/770137_man_512x512.png",
+    },
+    {
+      firstName: "Yusef",
+      lastName: "Lopéz",
+      age: 40,
+      gender: "f",
+      photoURL: "https://media4.giphy.com/media/5sYyfIMRcpJWNqdySh/giphy.gif",
+    },
+    {
+      firstName: "Alan",
+      lastName: "Guerrero",
+      age: 23,
+      gender: "m",
+      photoURL:
+        "https://www.shareicon.net/data/2016/05/24/770137_man_512x512.png",
+    },
+    {
+      firstName: "Aaron",
+      lastName: "Enciso",
+      age: 24,
+      gender: "f",
+      photoURL:
+        "https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg",
+    },
+    {
+      firstName: "Danny",
+      lastName: "Vazquez",
+      age: 40,
+      gender: "m",
+      photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
+    },
+    {
+      firstName: "Danny",
+      lastName: "Vazquez",
+      age: 35,
+      gender: "m",
+      photoURL:
+        "https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_businessman_male-512.png",
+    },
+  ];
   const handleMouseEnter = (e) => {
     e.target.style.background = "grey";
   };
@@ -73,6 +141,28 @@ function App() {
     const check1Class = check1 ? "clicked" : "1";
     return check1Class;
   }
+
+  const kodersUI = koders.map(
+    ({ firstName, lastName, age, gender, photoURL }, index) => (
+      <div key={index} className="card-container">
+        <div className="card-image-container">
+          <img alt="profile" src={photoURL} className="card-image" />
+        </div>
+        <div className="dividerVert"></div>
+        <div className="card-content">
+          <CardItemContent title="Nombre:" text={`${firstName} ${lastName}`} />
+          <div className="dividerHor">.</div>
+          <CardItemContent title="Edad:" text={age} />
+          <div className="dividerHor">.</div>
+
+          <CardItemContent
+            title="Genero:"
+            text={gender === "m" ? "Masculino" : "Femenino"}
+          />
+        </div>
+      </div>
+    )
+  );
   console.log(checkNumber());
   return (
     <div className="App">
@@ -140,6 +230,9 @@ function App() {
           CDN Links
         </p>
       </header>
+      <div className="main-container">
+        <div className="container">{kodersUI}</div>
+      </div>
     </div>
   );
 }

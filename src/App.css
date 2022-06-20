@@ -36,3 +36,140 @@
     transform: rotate(360deg);
   }
 }
+li {
+  cursor: pointer;
+}
+
+li:hover {
+  opacity: 0.8;
+}
+
+.active {
+  color: #61dafb;
+}
+.inactive {
+  color: white;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+}
+
+.square-on {
+  background-color: #61dafb;
+}
+
+.square-off {
+  background-color: white;
+  color: black;
+}
+
+button {
+  width: 200px;
+  border: none;
+  border-radius: 4px;
+}
+button:hover {
+  width: 200px;
+  border: blue 1px;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: rgb(212, 212, 212);
+}
+
+.card-container {
+  display: flex;
+  width: 300px;
+  height: 250px;
+  background-color: #8BC6EC;
+background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+
+  border: 1px solid grey;
+  border-radius: 20px;
+  color: black;
+  padding: 20px;
+  margin: 5px 5px;
+  cursor: pointer;
+  text-align: start;
+}
+
+.card-container:hover {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+    opacity: 70%;
+}
+
+.card-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-image {
+  width: 100px;
+  border: 1px solid grey;
+  border-radius: 100%;
+}
+.dividerVert{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2px;
+  height: 90%;
+  background-color: rgba(128, 128, 128, 0.226);
+ 
+  margin: 20px
+}
+.dividerHor{
+  width: 100%;
+  background-color: rgba(76, 102, 248, 0.644);
+  height: 1px;
+  border-radius: 100%;
+  margin: 5px 0 5px 0;
+}
+.card-content {
+ 
+  display: flex;
+  flex-direction: column;
+}
+
+.card-item-content {
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+
+.card-item-content > p {
+  margin: 0;
+}
+
+.title {
+  font-size: medium;
+  font-weight: bold;
+  color: #2e2e2e;
+}
+
+.content {
+  font-size: xx-large;
+  font-weight: 500;
+  color: #0c0c0c;
+}
