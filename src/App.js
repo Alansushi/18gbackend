@@ -1,4 +1,5 @@
 // import { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 //components
 
@@ -16,7 +17,8 @@ import Card from "./components/card";
 // }
 
 function App() {
-  const koders = [
+  const [firstName, setFirstName] = useState("");
+  const [koders, setKoders] = useState([
     {
       firstName: "Luis",
       lastName: "Vera",
@@ -78,7 +80,7 @@ function App() {
       photoURL:
         "https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_businessman_male-512.png",
     },
-  ];
+  ]);
 
   const kodersUI = koders.map(
     ({ firstName, lastName, age, gender, photoURL }, index) => (
@@ -92,6 +94,10 @@ function App() {
       />
     )
   );
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Agregar KODER");
+  };
 
   return (
     // <div className="App">
@@ -161,6 +167,14 @@ function App() {
     //   </header>
     <div className="main-container">
       <div className="container">{kodersUI}</div>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          value={firstName}
+          onChange={(event) => setFirstName(event.target.value)}
+        />
+        <button>Agregar koders</button>
+      </form>
     </div>
   );
 }
