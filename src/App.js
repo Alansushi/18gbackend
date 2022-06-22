@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./App.css";
 //components
 
-import Card from "./components/card";
+// import Card from "./components/card";
 
 // import "./components/Fullname/buttons.css";
 // import { click } from "@testing-library/user-event/dist/click";
@@ -17,87 +17,88 @@ import Card from "./components/card";
 // }
 
 function App() {
-  const [firstName, setFirstName] = useState("");
-  const [koders, setKoders] = useState([
-    {
-      firstName: "Luis",
-      lastName: "Vera",
-      age: 24,
-      gender: "f",
-      photoURL:
-        "https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg",
-    },
-    {
-      firstName: "Nestor",
-      lastName: "Ramírez",
-      age: 40,
-      gender: "m",
-      photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
-    },
-    {
-      firstName: "David",
-      lastName: "Romero",
-      age: 28,
-      gender: "m",
-      photoURL:
-        "https://www.shareicon.net/data/2016/05/24/770137_man_512x512.png",
-    },
-    {
-      firstName: "Yusef",
-      lastName: "Lopéz",
-      age: 40,
-      gender: "f",
-      photoURL: "https://media4.giphy.com/media/5sYyfIMRcpJWNqdySh/giphy.gif",
-    },
-    {
-      firstName: "Alan",
-      lastName: "Guerrero",
-      age: 23,
-      gender: "m",
-      photoURL:
-        "https://www.shareicon.net/data/2016/05/24/770137_man_512x512.png",
-    },
-    {
-      firstName: "Aaron",
-      lastName: "Enciso",
-      age: 24,
-      gender: "f",
-      photoURL:
-        "https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg",
-    },
-    {
-      firstName: "Danny",
-      lastName: "Vazquez",
-      age: 40,
-      gender: "m",
-      photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
-    },
-    {
-      firstName: "Danny",
-      lastName: "Vazquez",
-      age: 35,
-      gender: "m",
-      photoURL:
-        "https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_businessman_male-512.png",
-    },
-  ]);
+  const [number, setNumber] = useState(0);
+  // const [firstName, setFirstName] = useState("");
+  // const [koders, setKoders] = useState([
+  //   {
+  //     firstName: "Luis",
+  //     lastName: "Vera",
+  //     age: 24,
+  //     gender: "f",
+  //     photoURL:
+  //       "https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg",
+  //   },
+  //   {
+  //     firstName: "Nestor",
+  //     lastName: "Ramírez",
+  //     age: 40,
+  //     gender: "m",
+  //     photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
+  //   },
+  //   {
+  //     firstName: "David",
+  //     lastName: "Romero",
+  //     age: 28,
+  //     gender: "m",
+  //     photoURL:
+  //       "https://www.shareicon.net/data/2016/05/24/770137_man_512x512.png",
+  //   },
+  //   {
+  //     firstName: "Yusef",
+  //     lastName: "Lopéz",
+  //     age: 40,
+  //     gender: "f",
+  //     photoURL: "https://media4.giphy.com/media/5sYyfIMRcpJWNqdySh/giphy.gif",
+  //   },
+  //   {
+  //     firstName: "Alan",
+  //     lastName: "Guerrero",
+  //     age: 23,
+  //     gender: "m",
+  //     photoURL:
+  //       "https://www.shareicon.net/data/2016/05/24/770137_man_512x512.png",
+  //   },
+  //   {
+  //     firstName: "Aaron",
+  //     lastName: "Enciso",
+  //     age: 24,
+  //     gender: "f",
+  //     photoURL:
+  //       "https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg",
+  //   },
+  //   {
+  //     firstName: "Danny",
+  //     lastName: "Vazquez",
+  //     age: 40,
+  //     gender: "m",
+  //     photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
+  //   },
+  //   {
+  //     firstName: "Danny",
+  //     lastName: "Vazquez",
+  //     age: 35,
+  //     gender: "m",
+  //     photoURL:
+  //       "https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_businessman_male-512.png",
+  //   },
+  // ]);
 
-  const kodersUI = koders.map(
-    ({ firstName, lastName, age, gender, photoURL }, index) => (
-      <Card
-        key={index}
-        photoURL={photoURL}
-        firstName={firstName}
-        lastName={lastName}
-        age={age}
-        gender={gender}
-      />
-    )
-  );
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Agregar KODER");
-  };
+  // const kodersUI = koders.map(
+  //   ({ firstName, lastName, age, gender, photoURL }, index) => (
+  //     <Card
+  //       key={index}
+  //       photoURL={photoURL}
+  //       firstName={firstName}
+  //       lastName={lastName}
+  //       age={age}
+  //       gender={gender}
+  //     />
+  //   )
+  // );
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log("Agregar KODER");
+  // };
 
   return (
     // <div className="App">
@@ -166,7 +167,7 @@ function App() {
     //     </p>
     //   </header>
     <div className="main-container">
-      <div className="container">{kodersUI}</div>
+      {/* <div className="container">{kodersUI}</div>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -175,6 +176,17 @@ function App() {
         />
         <button>Agregar koders</button>
       </form>
+      <div>"hola"</div> */}
+
+      <input
+        placeholder={setNumber}
+        value={number}
+        onChange={(event) => setNumber(event.target.value)}
+      ></input>
+      <button onClick={(event) => setNumber(number * 20.2039)}>
+        Convertir
+      </button>
+      <div>{(Math.round(number * 100) / 100).toFixed(2)}</div>
     </div>
   );
 }
