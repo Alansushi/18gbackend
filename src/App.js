@@ -18,6 +18,7 @@ import "./App.css";
 
 function App() {
   const [number, setNumber] = useState(0);
+  const [dollar, setDollar] = useState(0);
   // const [firstName, setFirstName] = useState("");
   // const [koders, setKoders] = useState([
   //   {
@@ -179,14 +180,19 @@ function App() {
       <div>"hola"</div> */}
 
       <input
-        placeholder={setNumber}
-        value={number}
-        onChange={(event) => setNumber(event.target.value)}
+        placeholder={`${number.toFixed(2)} pesos`}
+        // value={`${number.toFixed(2)} pesos`}
+        onChange={(event) => setDollar(Number(event.target.value) / 20.16)}
       ></input>
-      <button onClick={(event) => setNumber(number * 20.2039)}>
-        Convertir
+      {/* <button onClick={() => setNumber(number / 20.16)}>
+        Convertir a dolares
       </button>
-      <div>{(Math.round(number * 100) / 100).toFixed(2)}</div>
+      <h3>La cantidad equivale a ${number.toFixed(2)}USD</h3> */}
+      <input
+        placeholder={`${dollar.toFixed(2)} dolares`}
+        // value={`${dollar.toFixed(2)} dolares`}
+        onChange={(event) => setNumber(Number(event.target.value) * 20.16)}
+      ></input>
     </div>
   );
 }
