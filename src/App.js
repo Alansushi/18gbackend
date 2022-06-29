@@ -1,39 +1,37 @@
-import logo from "./logo.svg";
-
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-//components
-import Title from "./components/Title";
-import Nombre from "./components/Fullname/fullname";
 
-import "./components/Fullname/buttons.css";
+// Containers
+import AppContainer from "./containers/AppContainer";
+import ProfileContainer from "./containers/ProfileContainer";
+
+// Components
+import About from "./pages/About";
+import Home from "./pages/Home/indexHome";
+import ProfileDetail from "./pages/Profile/Detail";
+import ProfileEdit from "./pages/Profile/Edit";
+import CreateProfile from "./pages/Profile/create/create";
+import ProfileList from "./pages/Profile/List/list";
 
 function App() {
-  const [count, setCount] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Title text="Alans"></Title>
-        <Nombre name="Alan" lastName="Guerrero"></Nombre>
+      <Routes>
+        <Route path="/" element={<p>Landing page</p>} />
+        <Route path="login" element={<p>Login</p>} />
+        <Route path="signup" element={<p>Signup</p>} />
+        <Route path="app" element={<AppContainer />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="profile" element={<ProfileContainer />}>
+            <Route index element={<ProfileList />} />
+            <Route path=":id" element={<ProfileDetail />} />
+            <Route path="edit/:id" element={<ProfileEdit />} />
 
-        <p>Counter: {count}</p>
-        <div>
-          <button onClick={() => setCount(count + 1)}>More</button>
-          <button onClick={() => setCount(count - 1)}>Less</button>
-        </div>
-      </header>
+            <Route path="create" element={<CreateProfile />} />
+          </Route>
+        </Route>
+      </Routes>
     </div>
   );
 }
