@@ -3,6 +3,11 @@ import "./create.css";
 
 import { postPerson } from "../../../services/person";
 
+import Input from "../../../component/input/input";
+// Toastify
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+
 export default function CreateProfile() {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -10,62 +15,69 @@ export default function CreateProfile() {
   const [photo, setPhoto] = useState("");
   const [birthdate, setBirthdate] = useState("");
 
+  const cleanForm = () => {
+    setName("");
+    setLastName("");
+    setPhoto("");
+    steEmail("");
+    setBirthdate("");
+  };
+  const isEmpty = (value) => !value;
+
   const handleClick = (event) => {
     event.preventDefault();
-    console.log("jala");
+    if (
+      isEmpty(name) ||
+      isEmpty(lastName) ||
+      isEmpty(photo) ||
+      isEmpty(email) ||
+      isEmpty(birthdate)
+    ) {
+      // toast.error("Llena el form!!!!");
+      return;
+    }
 
     postPerson(name, lastName, email, photo, birthdate);
   };
 
-  //   postButton.addEventListener(("click") => {
-  //     console.log("jala");
-  //   });
-
   return (
-    <div className="createContainer">
-      <input
-        id="name"
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      />
+    <div>
+      <div className="form-container">
+        <Input
+          placeholder="First Name"
+          value={name}
+          callback={(e) => setName(e.target.value)}
+        />
+        <Input
+          placeholder="Last Name"
+          value={lastName}
+          callback={(e) => setLastName(e.target.value)}
+        />
+      </div>
 
-      <input
-        id="lastName"
-        type="text"
-        placeholder="LastName"
-        value={lastName}
-        onChange={(event) => setLastName(event.target.value)}
-      />
-
-      <input
-        id="email"
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(event) => steEmail(event.target.value)}
-      />
-
-      <input
-        id="photo"
-        type="text"
-        placeholder="Photo"
-        value={photo}
-        onChange={(event) => setPhoto(event.target.value)}
-      />
-
-      <input
-        id="birthdate"
-        type="date"
-        placeholder="Birthdate"
-        value={birthdate}
-        onChange={(event) => setBirthdate(event.target.value)}
-      />
-
-      <button onClick={handleClick} id="create">
-        Create
-      </button>
+      <div className="form-container">
+        <Input
+          type="url"
+          placeholder="Photo URL"
+          value={photo}
+          callback={(e) => setPhoto(e.target.value)}
+        />
+        <Input
+          type="email"
+          placeholder="Email"
+          value={email}
+          callback={(e) => steEmail(e.target.value)}
+        />
+        <Input
+          type="date"
+          placeholder="birthdate"
+          value={birthdate}
+          callback={(e) => setBirthdate(e.target.value)}
+        />
+        <button onClick={handleClick} id="create">
+          Create
+        </button>
+      </div>
     </div>
   );
 }

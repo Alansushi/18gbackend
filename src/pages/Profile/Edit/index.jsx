@@ -4,13 +4,14 @@ import { retrieve as retrieveUser } from "../../../services/retrieve";
 
 import { PatchPerson } from "../../../services/editPerson";
 
+import Input from "../../../component/input/input";
+
 import "./Edit.css";
 export default function ProfileEdit() {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, steEmail] = useState("");
   const [photo, setPhoto] = useState("");
-  const [birthdate, setBirthdate] = useState("");
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -48,22 +49,33 @@ export default function ProfileEdit() {
       ) : (
         <div>
           <img alt="oa" src={user.photoURL} />
-          <input
-            placeholder={user.photoURL}
-            onChange={(event) => setPhoto(event.target.value)}
-          />
-          <input
-            placeholder={user.firstName}
-            onChange={(event) => setName(event.target.value)}
-          />
-          <input
-            placeholder={user.lastName}
-            onChange={(event) => setLastName(event.target.value)}
-          />
-          <input
-            placeholder={user.email}
-            onChange={(event) => steEmail(event.target.value)}
-          />
+          <div className="form-container">
+            <Input
+              placeholder="First Name"
+              value={user.firstName}
+              callback={(e) => setName(e.target.value)}
+            />
+            <Input
+              placeholder="Last Name"
+              value={user.lastName}
+              callback={(e) => setLastName(e.target.value)}
+            />
+          </div>
+
+          <div className="form-container">
+            <Input
+              type="url"
+              placeholder="Photo URL"
+              value={user.photoURL}
+              callback={(e) => setPhoto(e.target.value)}
+            />
+            <Input
+              type="email"
+              placeholder="Email"
+              value={user.email}
+              callback={(e) => steEmail(e.target.value)}
+            />
+          </div>
 
           <button onClick={handleClick} id="ACTUALIZAR">
             ACTUALIZAR
